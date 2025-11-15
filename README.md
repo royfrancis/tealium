@@ -1,1 +1,43 @@
-# tealium
+# tealium <span><a href="https://github.com/royfrancis/tealium"><img src="assets/logos/logo.webp" style="height:40px;vertical-align:middle;"></a></span> 
+
+[![ci_badge](https://github.com/royfrancis/tealium/workflows/deploy/badge.svg)](https://github.com/royfrancis/tealium/actions?workflow=deploy)  [![linkcheck_badge](https://github.com/royfrancis/tealium/workflows/linkcheck/badge.svg)](https://github.com/royfrancis/tealium/actions?workflow=linkcheck)  [![lifecycle_badge](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+
+Quarto website template for courses
+
+![Report home](preview-home.webp)
+
+![Report preview](preview-report.webp)
+
+![Slide preview](preview-slide.webp)
+
+For a demo site and usage, see [here](https://royfrancis.github.io/tealium).
+
+## Usage
+
+- Recommended quarto 1.6.43 or higher
+- To download and use a starter template, run in the terminal
+
+:exclamation: Demo files are not downloaded
+
+```
+quarto use template royfrancis/tealium
+```
+
+- Render all html files into `docs` directory to make sure everything works as expected
+
+```
+quarto render
+```
+
+- Use `##` as the highest level heading.
+- Limited documentation is available on the [demo site](https://royfrancis.github.io/tealium/home_contents.html) for customization
+
+## Acknowledgements
+
+- Built using [Quarto](https://quarto.org/)
+- Uses the [fontawesome extension](https://github.com/quarto-ext/fontawesome) for icons
+- Uses the [reveal-logo extension](https://github.com/royfrancis/reveal-logo) for logos in presentation 
+
+---
+
+2025 • Roy Francis
