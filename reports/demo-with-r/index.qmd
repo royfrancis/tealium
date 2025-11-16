@@ -3,10 +3,6 @@ title: "Quarto with R"
 author: "Roy Francis"
 description: "This document showcases the use of R."
 image: "/assets/images/featured.webp"
-title-slide-attributes:
-  data-background-image: "assets/cover.webp"
-  data-background-size: "cover"
-  data-background-opacity: "1"
 format: html
 ---
 
