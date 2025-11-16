@@ -1,6 +1,6 @@
 ---
 title: "Contents"
-description: "Sample reports and slides. Slides: {{< fa file-powerpoint >}} / {{< fa file-pdf >}}, Reports: {{< fa file-lines >}}"
+subtitle: "Sample reports and slides. Slides: {{< fa file-powerpoint >}} / {{< fa file-pdf >}}, Reports: {{< fa file-lines >}}"
 date: ""
 toc: false
 number-sections: false

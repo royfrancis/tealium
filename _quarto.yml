@@ -89,10 +89,12 @@ format:
     callout-icon: true
     image: "/assets/images/featured.webp"
     title-slide-attributes:
-      data-background-image: "/assets/images/network-1.svg"
+      data-background-image: "/assets/images/cover.webp"
       data-background-size: "cover"
       data-background-opacity: "1"
-    title-content-background: "../../assets/images/binary.svg"
+    title-content-background: "../../../assets/images/binary.svg"
+    resources:
+      - "assets/images/binary.svg"
     subtitle: "Tealium quarto theme"
     header-logo-left: /assets/logos/logo-mark.webp
     header-logo-left-height: 25px
