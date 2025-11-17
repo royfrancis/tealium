@@ -1290,9 +1290,9 @@ Sys.info()
 - Export HTML to PDF using PDF export mode by pressing **e**
 - For complete Quarto revealjs documentation, click [here](https://quarto.org/docs/presentations/revealjs/)
 
-## Title slide
+## Cover slide
 
-Change title slide background image by setting the following YAML parameters.
+Change title slide background image by adjusting the following YAML parameters.
 
 ```
 ---
