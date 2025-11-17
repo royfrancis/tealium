@@ -36,7 +36,8 @@ quarto render
 
 - Built using [Quarto](https://quarto.org/)
 - Uses the [fontawesome extension](https://github.com/quarto-ext/fontawesome) for icons
-- Uses the [reveal-logo extension](https://github.com/royfrancis/reveal-logo) for logos in presentation 
+- Uses the [reveal-logo extension](https://github.com/royfrancis/quarto-reveal-logo) for logos in presentation 
+- Uses the [particles extension](https://github.com/royfrancis/quarto-particles) for particles effect 
 
 ---
 
