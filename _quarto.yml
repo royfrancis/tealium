@@ -58,7 +58,7 @@ format:
     df-print: paged
     standalone: false
     fig-align: left
-    title-block-banner: "assets/images/banner.webp"
+    title-block-banner: "assets/images/binary.svg"
     subtitle: "Tealium quarto theme"
     callout-icon: true
     date:  last-modified
