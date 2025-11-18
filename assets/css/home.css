@@ -15,10 +15,19 @@
 .home-container {
   max-width: 1200px;
   display: flex;
-  align-items: flex-end;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   height: 100%;
   pointer-events: none;
+}
+
+.home-container .spacer:first-child {
+	flex: 1 1 60% ;
+}
+
+.home-container .spacer:last-child {
+	flex: 1 1 40% ;
 }
 
 .home-inner {

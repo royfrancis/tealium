@@ -24,6 +24,9 @@ filters:
 ---
 
 ::: {.home-container}
+::: {.spacer}
+
+:::
 ::: {.home-inner}
 
 ## [Tealium: Course Template]{.large}
@@ -39,6 +42,9 @@ For usage instructions and demo examples, see [Contents](home_contents.html)
 ::: small
 Updated: {{< meta current_date >}}  at {{< meta current_time >}}.
 :::
+
+:::
+::: {.spacer}
 
 :::
 :::
