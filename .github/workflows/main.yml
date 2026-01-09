@@ -54,8 +54,8 @@ jobs:
           tinytex: true
       - run: quarto --version
       - run: quarto render
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
+      - name: Configure Github Pages
+        uses: actions/configure-pages@v5
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
