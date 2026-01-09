@@ -23,11 +23,11 @@
 }
 
 .home-container .spacer:first-child {
-	flex: 1 1 60% ;
+	flex: 1 1 70% ;
 }
 
 .home-container .spacer:last-child {
-	flex: 1 1 40% ;
+	flex: 1 1 10% ;
 }
 
 .home-inner {

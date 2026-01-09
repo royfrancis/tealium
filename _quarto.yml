@@ -70,7 +70,7 @@ format:
     include-in-header: "assets/include_head.html"
     include-before-body: "assets/include_body_before.html"
     include_after_body: "assets/include_body_after.html"
-    theme: ["default","assets/css/slides.scss"]
+    theme: ["default", "assets/css/slides.scss"]
     df-print: kable
     width: 1280
     height: 720

@@ -4,6 +4,8 @@ subtitle: ""
 toc: false
 date: ""
 sidebar: false
+anchor-sections: false
+image: "assets/images/seo.webp"
 format:
   html:
     css: "assets/css/home.css"
@@ -20,7 +22,6 @@ resources:
 filters:
   - particles
   - assets/hero-gallery.lua
-
 ---
 
 ::: {.home-container}
