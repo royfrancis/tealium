@@ -68,6 +68,16 @@ body {
   line-height: 1;
 }
 
+/* listing */
+
+.quarto-listing .card {
+  border-radius: 0;
+}
+
+.quarto-listing img {
+  border-radius: 0;
+}
+
 .listing-image img {
   height: 40px;
   width: 60px;
