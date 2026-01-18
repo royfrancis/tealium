@@ -55,7 +55,7 @@ format:
     code-tools: false
     code-copy: true
     code-overflow: wrap
-    df-print: paged
+    df-print: kable
     standalone: false
     fig-align: left
     title-block-banner: "assets/images/binary.svg"
