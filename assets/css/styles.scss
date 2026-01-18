@@ -163,7 +163,7 @@ body {
 pre {
   line-height: 1.4;
   background-color: $code-block-bg;
-  border-radius: 0.25rem;
+  border-radius: 0;
 }
 
 pre:not(.sourceCode), pre:not([class]) {
@@ -177,6 +177,11 @@ div.code-with-filename-file pre {
 
 code {
   color: $code-color;
+  border-radius: 0;
+}
+
+div.sourceCode {
+  border-radius: 0;
 }
 
 .cell-output-stdout code {
