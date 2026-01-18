@@ -20,7 +20,7 @@ format:
 :::
 :::
 
-[**John Doe**](http://www.johndoe.com/)  
+[**Jane Doe**](http://www.janedoe.com/)  
 Data Scientist, Institute 
 Associate Professor in Bioinformatics, University
 
@@ -47,7 +47,7 @@ Data Scientist, Institute
 :::
 :::
 
-[**John Doe**](http://www.johndoe.com/)  
+[**Jane Doe**](http://www.janedoe.com/)  
 Data Scientist, Institute
 
 :::
