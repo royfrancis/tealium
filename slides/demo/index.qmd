@@ -649,6 +649,134 @@ head(iris[1:3,1:2])
 :::
 ::::
 
+## Code sizing
+
+::: {.columns}
+::: {.column}
+
+**Sizing pre-formatted inline code**
+
+```         
+[`Sys.Date()`]{.largest}
+[`Sys.Date()`]{.larger}
+[`Sys.Date()`]{.large}
+`Sys.Date()`
+[`Sys.Date()`]{.small}
+[`Sys.Date()`]{.smaller}
+[`Sys.Date()`]{.smallest}
+```
+
+[`Sys.Date()`]{.largest}\
+[`Sys.Date()`]{.larger}\
+[`Sys.Date()`]{.large}\
+`Sys.Date()`\
+[`Sys.Date()`]{.small}\
+[`Sys.Date()`]{.smaller}\
+[`Sys.Date()`]{.smallest}
+
+:::
+::: {.column}
+
+**Sizing pre-formatted code block**
+
+````
+::: {.small}
+```
+Sys.Date()
+```
+:::
+````
+
+::: {.small}
+```
+Sys.Date()
+```
+:::
+
+````
+::: {.smaller}
+```
+Sys.Date()
+```
+:::
+````
+
+::: {.smaller}
+```
+Sys.Date()
+```
+:::
+
+::: {.smallest}
+```
+Sys.Date()
+```
+:::
+
+:::
+:::
+
+## Code sizing
+
+::: {.columns}
+::: {.column}
+
+**Sizing source code**
+
+```{{r}}
+#| class-source: small
+#| echo: true
+Sys.Date()
+```
+
+```{r}
+#| class-source: small
+#| echo: true
+Sys.Date()
+```
+
+```{r}
+#| class-source: smaller
+#| echo: true
+Sys.Date()
+```
+
+```{r}
+#| class-source: smallest
+#| echo: true
+Sys.Date()
+```
+
+The output can be hidden using `echo: false` or `results: hide`.
+
+:::
+::: {.column}
+
+**Sizing source and output code**
+
+```{{r}}
+#| classes: small
+Sys.Date()
+```
+
+```{r}
+#| classes: small
+Sys.Date()
+```
+
+```{r}
+#| classes: smaller
+Sys.Date()
+```
+
+```{r}
+#| classes: smallest
+Sys.Date()
+```
+
+:::
+:::
+
 ## Code highlighting
 
 :::{.columns}
@@ -1102,17 +1230,12 @@ R package [`ggiraph`](https://github.com/davidgohel/ggiraph) converts a static g
 
 library(ggiraph)
 p <- ggplot(iris,aes(x=Sepal.Length,y=Petal.Length,colour=Species))+
-      geom_point_interactive(aes(tooltip=paste0("<b>Petal Length:</b> ",Petal.Length,"\n<b>Sepal Length: </b>",Sepal.Length,"\n<b>Species: </b>",Species)),size=2)+
+      geom_point_interactive(aes(tooltip=paste0("<b>Petal Length:</b> ",Petal.Length,"\n<b>Sepal Length: </b>",Sepal.Length,"\n<b>Species: </b>",Species)),size=1)+
   theme_bw()
 tooltip_css <- "background-color:#f8f9f9;padding:10px;border-style:solid;border-width:2px;border-color:#125687;border-radius:5px;"
 girafe(code=print(p), height_svg=2, width_svg=4,
-  options=list(
-    opts_hover(css="cursor:pointer;stroke:black;fill-opacity:0.3"),
-    opts_zoom(max=5),
-    opts_tooltip(css=tooltip_css,opacity=0.9),
-    opts_sizing(width=0.6)
-  )
-)
+  options=list(opts_hover(css="cursor:pointer;stroke:black;fill-opacity:0.3"), opts_zoom(max=5),
+    opts_tooltip(css=tooltip_css,opacity=0.9), opts_sizing(width=0.6)))
 ```
 
 ## Interactive time series • `dygraphs`
@@ -1278,15 +1401,6 @@ This slide has a background image
 - Replace *assets/cover.webp* to change cover slide picture
 - Replace *assets/end.webp* to change end slide picture
 - Add custom css under YAML `css: "styles.css"`
-- If content overflows the slide in vertical direction, add class `.scrollable`
-
-::: scrollable
-```{r}
-#| echo: false
-Sys.info()
-```
-:::
-
 - Export HTML to PDF using PDF export mode by pressing **e**
 - For complete Quarto revealjs documentation, click [here](https://quarto.org/docs/presentations/revealjs/)
 
@@ -1297,10 +1411,17 @@ Change title slide background image by adjusting the following YAML parameters.
 ```
 ---
 title-slide-attributes:
-    data-background-image: "assets/cover.webp"
-    data-background-size: "cover"
-    data-background-opacity: "1"
+  data-background-image: "assets/cover.webp"
+  data-background-size: "cover"
+  data-background-opacity: "1"
 ---
+```
+
+## Session
+
+```{r}
+#| echo: false
+sessionInfo()
 ```
 
 ##  {background-image="../../assets/images/network.svg"}
