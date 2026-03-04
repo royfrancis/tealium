@@ -23,6 +23,14 @@ For a demo site and usage, see [here](https://royfrancis.github.io/tealium).
 quarto use template royfrancis/tealium
 ```
 
+- Install required extensions
+
+```
+quarto add quarto-ext/fontawesome
+quarto add royfrancis/quarto-reveal-logo
+quarto add royfrancis/quarto-particles
+```
+
 - Render all html files into `docs` directory to make sure everything works as expected
 
 ```

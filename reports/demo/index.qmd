@@ -101,7 +101,7 @@ An example of footnote reference [^1]
 
 ### Badge
 
-This is primary [badge]{.badge .badge-primary} and this is a secondary [badge]{.badge .badge-secondary}. Badges are defined as such:
+Badges are defined as such:
 
 `[badge]{.badge .badge-primary}`  [badge]{.badge .badge-primary}  
 `[badge]{.badge .badge-secondary}`  [badge]{.badge .badge-secondary}  
