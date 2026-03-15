@@ -29,6 +29,7 @@ quarto use template royfrancis/tealium
 quarto add quarto-ext/fontawesome
 quarto add royfrancis/quarto-reveal-logo
 quarto add royfrancis/quarto-particles
+quarto add royfrancis/quarto-accordion
 ```
 
 - Render all html files into `docs` directory to make sure everything works as expected
