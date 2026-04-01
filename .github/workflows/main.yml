@@ -54,16 +54,19 @@ jobs:
         uses: quarto-dev/quarto-actions/setup@v2
         with:
           version: 1.9.35
-          tinytex: true
       - run: quarto --version
       - run: quarto add --no-prompt quarto-ext/fontawesome
+      - run: quarto add --no-prompt mcanouil/quarto-collapse-output@1.4.0
       - run: quarto add --no-prompt royfrancis/quarto-reveal-logo
-      - run: quarto add --no-prompt royfrancis/quarto-particles
       - run: quarto add --no-prompt royfrancis/quarto-accordion
-      - run: quarto render
+      - run: quarto add --no-prompt royfrancis/quarto-leaflet
+      - run: quarto add --no-prompt royfrancis/quarto-particles
+
+      - name: Render Quarto Project
+        uses: quarto-dev/quarto-actions/render@v2
 
       - name: Configure Github Pages
-        uses: actions/configure-pages@v5
+        uses: actions/configure-pages@v6
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v4
@@ -72,4 +75,4 @@ jobs:
 
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

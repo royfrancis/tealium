@@ -45,7 +45,7 @@ library(crosstalk) # linking plots
 ## Introduction
 
 ::: {.large}
-This is a [Quarto](https://quarto.org/) [revealjs](https://revealjs.com) presentation with Tealium theme. This demo showcases the usage and capabilities of this system. Revealjs in Quarto is documented [here](https://quarto.org/docs/presentations/revealjs/).
+This is a [Quarto](https://quarto.org/) [revealjs](https://revealjs.com) presentation. This demo showcases the usage and capabilities of this system. Revealjs in Quarto is documented [here](https://quarto.org/docs/presentations/revealjs/).
 :::
 
 ## Getting started
@@ -698,6 +698,36 @@ head(iris[1:3,1:2])
 :::
 ::::
 
+## Code folding
+
+Source code blocks can be folded to only show the output.
+
+````
+```{{r}}
+#| code-fold: true
+Sys.Date()
+```
+````
+
+```{r}
+#| code-fold: true
+Sys.Date()
+```
+
+Quarto extension [`quarto-collapse-output`](https://github.com/mcanouil/quarto-collapse-output) is used to enable folding of code output.
+
+````
+```{{r}}
+#| output-fold: true
+Sys.Date()
+```
+````
+
+```{r}
+#| output-fold: true
+Sys.Date()
+```
+
 ## Code sizing
 
 ::: {.columns}
@@ -1315,6 +1345,51 @@ forceNetwork(Links=MisLinks,Nodes=MisNodes,Source="source",
 
 ## Interactive maps • `leaflet`
 
+Quarto extension [leaflet](https://github.com/royfrancis/quarto-leaflet) provides support for [leafletjs](http://leafletjs.com/) maps. Add map information to yaml matter or `_metadata.yml` and use the shortcode `{{< leaflet mapname >}}`.
+
+::: {columns}
+::: {.column width="50%"}
+
+
+```yaml
+---
+leaflet:
+  zoom: 15
+  ucl:
+    markers:
+      - tooltip: Venue
+        icon: "fa-solid fa-briefcase"
+        icon-color: "#E74856"
+        lat: 51.5218
+        lon: -0.1318
+        popup: "Room 309<br> Roberts Building<br> University College London<br> Torrington Place<br> London WC1E 7JE<br> United Kingdom"
+      - tooltip: "The Academy Hotel (0.2 km, 3 min walk)"
+        icon: "fa-solid fa-bed"
+        icon-color: "#0078D7"
+        lat: 51.5244
+        lon: -0.1328
+        popup: "21 Gower Street<br> London WC1E 6HG<br> United Kingdom"
+      - tooltip: "The Bloomsbury Hotel (0.5 km, 6 min walk)"
+        icon: "fa-solid fa-bed"
+        icon-color: "#0078D7"
+        lat: 51.5192
+        lon: -0.1265
+        popup: "16-22 Great Russell Street<br> London WC1B 3QD<br> United Kingdom"
+---
+
+{{{< leaflet ucl >}}}
+```
+
+:::
+::: {.column width="50%"}
+
+{{< leaflet ucl >}}
+
+:::
+:::
+
+## Interactive maps • `leaflet`
+
 R package [`leaflet`](https://rstudio.github.io/leaflet/) provides R bindings for javascript mapping library; [leafletjs](http://leafletjs.com/).
 
 ```{r}
@@ -1450,28 +1525,38 @@ This slide has a background image
 - Replace *assets/cover.webp* to change cover slide picture
 - Replace *assets/end.webp* to change end slide picture
 - Add custom css under YAML `css: "styles.css"`
-- Export HTML to PDF using PDF export mode by pressing **e**
+- Export HTML to PDF using [DeckTape](https://github.com/astefanutti/decktape)
+- Change title slide background image by adjusting the following YAML parameters.
+
+  ```
+  ---
+  title-slide-attributes:
+    data-background-image: "assets/cover.webp"
+    data-background-size: "cover"
+    data-background-opacity: "1"
+  ---
+  ```
+
 - For complete Quarto revealjs documentation, click [here](https://quarto.org/docs/presentations/revealjs/)
 
-## Cover slide
-
-Change title slide background image by adjusting the following YAML parameters.
-
-```
----
-title-slide-attributes:
-  data-background-image: "assets/cover.webp"
-  data-background-size: "cover"
-  data-background-opacity: "1"
----
-```
-
 ## Session
+
+- If content overflows the slide in vertical direction, add class `.scrollable`
+
+```
+::: { .scrollable }
+<contents>
+:::
+```
+
+::: { .scrollable }
 
 ```{r}
 #| echo: false
 sessionInfo()
 ```
+
+:::
 
 ##  {background-image="../../assets/images/network.svg"}
 
@@ -1486,5 +1571,4 @@ sessionInfo()
 
 :::
 :::
-
 

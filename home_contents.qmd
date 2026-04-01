@@ -1,20 +1,12 @@
 ---
 title: "Contents"
-subtitle: "Sample reports and slides. Slides: {{< fa file-powerpoint >}} / {{< fa file-pdf >}}, Reports: {{< fa file-lines >}}"
+description: "Sample reports and slides. Slides: {{< fa file-powerpoint >}} / {{< fa file-pdf >}}, Reports: {{< fa file-lines >}}"
 date: ""
 toc: false
 number-sections: false
 sidebar: false
 format: html
 ---
-
-## Install
-
-Once you have quarto installed, run;
-
-```
-quarto use template royfrancis/tealium
-```
 
 ## Reports
 

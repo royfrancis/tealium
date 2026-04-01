@@ -26,10 +26,12 @@ quarto use template royfrancis/tealium
 - Install required extensions
 
 ```
-quarto add quarto-ext/fontawesome
-quarto add royfrancis/quarto-reveal-logo
-quarto add royfrancis/quarto-particles
-quarto add royfrancis/quarto-accordion
+quarto add --no-prompt quarto-ext/fontawesome
+quarto add --no-prompt royfrancis/quarto-reveal-logo
+quarto add --no-prompt mcanouil/quarto-collapse-output@1.4.0
+quarto add --no-prompt royfrancis/quarto-accordion
+quarto add --no-prompt royfrancis/quarto-leaflet
+quarto add --no-prompt royfrancis/quarto-particles
 ```
 
 - Render all html files into `docs` directory to make sure everything works as expected
@@ -38,15 +40,19 @@ quarto add royfrancis/quarto-accordion
 quarto render
 ```
 
-- Use `##` as the highest level heading.
-- Limited documentation is available on the [demo site](https://royfrancis.github.io/tealium/home_contents.html) for customization
+- See more documentation on the [demo site](https://royfrancis.github.io/tealium/home_contents.html) for customization
+
+## Showcase
+
+Here is an example of this template in action:
+
+- [RaukR 2026](https://nbisweden.github.io/raukr-2026/)
 
 ## Acknowledgements
 
 - Built using [Quarto](https://quarto.org/)
 - Uses the [fontawesome extension](https://github.com/quarto-ext/fontawesome) for icons
-- Uses the [reveal-logo extension](https://github.com/royfrancis/quarto-reveal-logo) for logos in presentation 
-- Uses the [particles extension](https://github.com/royfrancis/quarto-particles) for particles effect 
+- Uses the [collapse-output extension](mcanouil/quarto-collapse-output@1.4.0) for code output folding
 
 ---
 

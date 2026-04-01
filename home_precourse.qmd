@@ -9,14 +9,18 @@ format: html
 
 ## Getting Started
 
-Welcome to the course! Please follow these generic preparation instructions to ensure a smooth experience.
+Welcome to the course! Please follow these preparation instructions to ensure a smooth experience.
 
 ::: {.callout-tip}
+
 ### Critical Pre-Course Tasks
+
 Before the course begins, make sure to:
+
 - Create your course account
 - Download the course materials
 - Test your internet connection
+
 :::
 
 ### Preparation Checklist
