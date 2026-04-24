@@ -166,10 +166,54 @@ table, .Reactable {
 
 .observablehq .btn {
   @extend .btn-sm;
+  border-radius: 0;
 }
 
 .observablehq select {
   @extend .form-select;
+  border-radius: 0;
+}
+
+.observablehq input:not([type]),
+.observablehq input[type="text"],
+.observablehq input[type="email"],
+.observablehq input[type="password"],
+.observablehq input[type="search"],
+.observablehq input[type="tel"],
+.observablehq input[type="url"],
+.observablehq input[type="number"],
+.observablehq input[type="file"],
+.observablehq input[type="date"],
+.observablehq input[type="datetime-local"],
+.observablehq input[type="month"],
+.observablehq input[type="time"],
+.observablehq input[type="week"],
+.observablehq textarea {
+  @extend .form-control;
+  border-radius: 0;
+}
+
+.observablehq input[type="button"],
+.observablehq input[type="submit"],
+.observablehq input[type="reset"] {
+  @extend .btn;
+  border-radius: 0;
+}
+
+.observablehq input[type="checkbox"],
+.observablehq input[type="radio"] {
+  @extend .form-check-input;
+  border-radius: 0;
+}
+
+.observablehq input[type="range"] {
+  @extend .form-range;
+  border-radius: 0;
+}
+
+.observablehq input[type="color"] {
+  @extend .form-control-color;
+  border-radius: 0;
 }
 
 /* alert */

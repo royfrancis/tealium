@@ -14,7 +14,7 @@ For a demo site and usage, see [here](https://royfrancis.github.io/tealium).
 
 ## Usage
 
-- Recommended quarto 1.6.43 or higher
+- Recommended quarto 1.8.25 or higher
 - To download and use a starter template, run in the terminal
 
 :exclamation: Demo files are not downloaded
