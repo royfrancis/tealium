@@ -1,9 +1,15 @@
+::: {.callout-note}
+
+## Address
+
 Room 309  
 Roberts Building  
 University College London  
 Torrington Place  
 London, WC1E 7JE  
 United Kingdom  
+
+:::
 
 A few selected hotels are listed below ranked by distance from the venue.
 
