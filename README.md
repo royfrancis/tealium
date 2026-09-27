@@ -1,6 +1,6 @@
-# tealium <span><a href="https://github.com/royfrancis/tealium"><img src="assets/logos/logo.webp" style="height:40px;vertical-align:middle;"></a></span> 
+# tealium <span><a href="https://github.com/royfrancis/tealium"><img src="assets/logos/logo.webp" style="height:30px;vertical-align:middle;"></a></span> 
 
-[![ci_badge](https://github.com/royfrancis/tealium/workflows/deploy/badge.svg)](https://github.com/royfrancis/tealium/actions?workflow=deploy)  [![linkcheck_badge](https://github.com/royfrancis/tealium/workflows/linkcheck/badge.svg)](https://github.com/royfrancis/tealium/actions?workflow=linkcheck)  [![lifecycle_badge](https://lifecycle.r-lib.org/articles/figures/lifecycle-experimental.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
+[![ci_badge](https://github.com/royfrancis/tealium/workflows/deploy/badge.svg)](https://github.com/royfrancis/tealium/actions?workflow=deploy)  [![linkcheck_badge](https://github.com/royfrancis/tealium/workflows/linkcheck/badge.svg)](https://github.com/royfrancis/tealium/actions?workflow=linkcheck)  
 
 Quarto website template for courses
 
