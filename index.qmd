@@ -35,7 +35,7 @@ filters:
 - [Report](reports/sample/index.html)
 - [Presentation](slides/sample/index.html)
 
-For usage instructions and demo examples, see [Contents](home_contents.html)
+For usage, instructions and demo examples, see [Contents](home_contents.html)
 
 ---
 
