@@ -3,7 +3,7 @@ title: Presentation
 author: "John Doe"
 subtitle: "This is a subtitle"
 description: "This is a description"
-image: "/assets/images/featured.webp"
+image: "../../assets/images/featured.webp"
 title-slide-attributes:
     data-background-image: "assets/cover.webp"
     data-background-size: "cover"
