@@ -63,6 +63,7 @@ jobs:
       - run: quarto add --no-prompt royfrancis/quarto-revealjs-pointer
       - run: quarto add --no-prompt royfrancis/quarto-accordion
       - run: quarto add --no-prompt royfrancis/quarto-leaflet
+      - run: quarto add --no-prompt royfrancis/quarto-toastui
       - run: quarto add --no-prompt royfrancis/quarto-particles
 
       - name: Render Quarto Project
