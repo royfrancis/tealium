@@ -28,7 +28,7 @@ format:
 :::
 
 [**Jane Doe**](http://www.janedoe.com/)  
-Data Scientist, Institute 
+Data Scientist, Institute  
 Associate Professor in Bioinformatics, University
 
 :::

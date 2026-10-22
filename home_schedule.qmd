@@ -48,8 +48,7 @@ toastui:
         backgroundColor: "#E8DAEF"
         dragBackgroundColor: "#E8DAEF"
         borderColor: "#BB8FCE"
-format:
-  html
+format: html
 ---
 
 <!-- Remember to set first day of schedule and file path in the YAML above -->

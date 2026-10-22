@@ -4,7 +4,7 @@ description: "Executable R features in Quarto Reveal.js presentations"
 author: "Roy Francis"
 image: "../../assets/images/featured.webp"
 title-slide-attributes:
-  data-background-image: "assets/cover.webp"
+  data-background-image: "../../assets/images/cover.webp"
   data-background-size: "cover"
   data-background-opacity: "1"
 format: revealjs
@@ -194,6 +194,8 @@ iris |>
   head() |>
   knitr::kable()
 ```
+
+[For more code highlighting documentation, see [here](https://quarto.org/docs/presentations/revealjs/#code-blocks).]{.smaller}
 
 ## Images with knitr
 

@@ -4,8 +4,6 @@
 
 /* colours, fonts, size ---------------------------------------------------------------------- */
 
-@import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Fira+Mono:wght@400;500;700&display=swap');
-
 $primary: #4C979F;
 $secondary: #A6CBCF;
 $tertiary: #D1E5E6;
@@ -15,7 +13,7 @@ $code-color: #496985;
 $code-block-bg: WhiteSmoke;
 $font-family-sans-serif: 'Albert Sans', 'Helvetica', sans-serif;
 $font-family-monospace: 'Fira Mono','Ubuntu Mono', 'Lucida Console', 'Courier', monospace;
-$font-family-headings: $font-family-sans-serif;
+$headings-font-family: $font-family-sans-serif;
 $mermaid-font-family: 'Albert Sans', 'Helvetica', sans-serif;
 $font-size-root: 18px;
 $code-font-size: 14px;
@@ -45,7 +43,7 @@ $footer-fg: DimGray;
 /*-- scss:rules --*/
 
 h1,h2,h3,h4,h5,h6 {
-  font-family: $font-family-headings;
+  font-family: $headings-font-family;
 }
 
 /* major third scale */
@@ -94,13 +92,6 @@ body {
   border-radius: 0;
 }
 
-.listing-image img {
-  height: 40px;
-  width: 60px;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-
 /* table */
 
 table th,
@@ -110,10 +101,6 @@ table td {
 
 table, .Reactable {
   font-size: 0.85em;
-}
-
-.contents-table table {
-  line-height: 1;
 }
 
 /* buttons */
@@ -365,16 +352,12 @@ div.callout-important .callout-icon::before {
   margin: 4px;
 }
 
-/* profile and guest gallery */
+/* profile gallery */
 
 .profile-parent {
   display: -ms-grid;
   display: grid;
   gap: 1em;
-}
-
-.profile-guest {
-  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
 }
 
 .profile-about {
@@ -440,26 +423,3 @@ div.callout-important .callout-icon::before {
   transition: filter 0.5s ease, -webkit-filter 0.5s ease;
 }
 
-/* gallery */
-
-.raukr-gallery-parent {
-  display: -ms-grid;
-  display: grid;
-  gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(100px,1fr));
-}
-
-.raukr-gallery-child {
-  text-align: center;
-}
-
-.raukr-gallery-child img {
-  height: 150px;
-  width: 150px;
-  -o-object-fit: cover;
-  object-fit: cover;
-}
-
-.raukr-gallery-child p {
-  margin-bottom: 0;
-}
