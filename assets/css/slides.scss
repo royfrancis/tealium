@@ -4,10 +4,13 @@
 
 /* colours, fonts, size ---------------------------------------------------------------------- */
 
-$primary: #4C979F;
+$primary: #4C979F; /* brand colour, for fills and decoration */
+$primary-dark: #37757D; /* fills that carry light text: buttons, badges (4.8:1 with whitesmoke) */
 $secondary: #A6CBCF;
 $tertiary: #D1E5E6;
-$link-color: #79B1B7;
+$accent: #CF6A45; /* warm accent, used sparingly: caution callouts */
+$link-color: #2F6F77; /* 5.4:1 on the slide background */
+$link-color-hover: darken($link-color, 10%);
 $body-color: #1c2833;
 $code-color: #496985;
 $code-block-bg: WhiteSmoke;
@@ -15,6 +18,18 @@ $font-family-sans-serif: 'Albert Sans', 'Helvetica', sans-serif;
 $font-family-monospace: 'Fira Mono','Ubuntu Mono', 'Lucida Console', 'Courier', monospace;
 $code-block-border-color: none;
 $code-bg: $code-block-bg; /* inline code */
+
+/* shadow strengths */
+$shadow-low: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+$shadow-medium: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+$shadow-high: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+
+/* callout colours, muted to sit with the teal palette */
+$callout-color-note: $primary;
+$callout-color-tip: #6B9F7F;
+$callout-color-important: #B5495B;
+$callout-color-caution: $accent;
+$callout-color-warning: #D4A02F;
 
 /* presentation */
 $presentation-font-size-root: 27px;
@@ -65,6 +80,10 @@ $presentation-h6-font-size: 1em;
   font-size: 1.75rem !important;
   line-height: 1.3;
   margin-bottom: 0.5em;
+}
+
+.reveal .code-with-filename .code-with-filename-file {
+  border-radius: 0;
 }
 
 .reveal .code-with-filename-file pre {
@@ -192,48 +211,51 @@ $presentation-h6-font-size: 1em;
 .reveal .btn.btn-primary {
   display: inline-block;
   padding: 0.2em 0.6em;
-  border: 1px solid $primary;
+  border: 1px solid $primary-dark;
   border-radius: 4px;
   color: whitesmoke;
-  background-color: $primary;
+  background-color: $primary-dark;
   line-height: 1.2;
   text-decoration: none;
   vertical-align: baseline;
   border-radius: 0;
+  box-shadow: $shadow-medium;
+  transition: box-shadow 0.15s ease, color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
 .reveal .btn:hover,
 .reveal .btn.btn-primary:hover {
-  border-color: darken($primary, 5%);
+  border-color: darken($primary-dark, 5%);
   color: whitesmoke;
-  background-color: darken($primary, 5%);
+  background-color: darken($primary-dark, 5%);
+  box-shadow: $shadow-low;
 }
 
 .reveal .btn:active,
 .reveal .btn.active,
 .reveal .btn.btn-primary:active,
 .reveal .btn.btn-primary.active {
-  border-color: darken($primary, 10%);
+  border-color: darken($primary-dark, 10%);
   color: whitesmoke;
-  background-color: darken($primary, 10%);
+  background-color: darken($primary-dark, 10%);
 }
 
 .reveal .btn.btn-secondary {
   border-color: $secondary;
-  color: whitesmoke;
+  color: $body-color;
   background-color: $secondary;
 }
 
 .reveal .btn.btn-secondary:hover {
   border-color: darken($secondary, 5%);
-  color: whitesmoke;
+  color: $body-color;
   background-color: darken($secondary, 5%);
 }
 
 .reveal .btn.btn-secondary:active,
 .reveal .btn.btn-secondary.active {
   border-color: darken($secondary, 10%);
-  color: whitesmoke;
+  color: $body-color;
   background-color: darken($secondary, 10%);
 }
 
@@ -273,7 +295,7 @@ $presentation-h6-font-size: 1em;
 .reveal .badge,
 .reveal .badge.badge-primary {
   font-size: 0.85em;
-  background-color: $primary;
+  background-color: $primary-dark;
   color: whitesmoke;
   padding: 0.05em 0.3em;
   border-radius: 0;
@@ -282,6 +304,7 @@ $presentation-h6-font-size: 1em;
 
 .reveal .badge.badge-secondary {
   background-color: $secondary;
+  color: $body-color;
 }
 
 .reveal .badge.badge-tertiary {
@@ -295,6 +318,8 @@ $presentation-h6-font-size: 1em;
   text-decoration: none;
 }
 
+.reveal .badge.badge-secondary a,
+.reveal .badge.badge-secondary a:hover,
 .reveal .badge.badge-tertiary a,
 .reveal .badge.badge-tertiary a:hover {
   color: $body-color;
@@ -306,9 +331,13 @@ $presentation-h6-font-size: 1em;
   border-radius: 0 !important;
 }
 
+/* thin neutral outline and a thicker left accent, the accent colour comes from $callout-color-* */
 .reveal .callout-style-default,
 .reveal .callout-style-simple {
-  border: solid silver 1px !important;
+  border-top: solid silver 1px !important;
+  border-right: solid silver 1px !important;
+  border-bottom: solid silver 1px !important;
+  border-left-width: 4px !important;
 }
 
 .reveal .callout.callout-style-simple .callout-title,
@@ -338,8 +367,19 @@ $presentation-h6-font-size: 1em;
   margin-top: 0.55rem;
 }
 
-.reveal div.callout.callout-note.callout-style-default .callout-title {
-  background-color: $secondary;
+/* title tinted with the callout colour */
+$callout-types: (
+  "note": $callout-color-note,
+  "tip": $callout-color-tip,
+  "important": $callout-color-important,
+  "caution": $callout-color-caution,
+  "warning": $callout-color-warning
+);
+
+@each $type, $color in $callout-types {
+  .reveal div.callout.callout-#{$type}.callout-style-default .callout-title {
+    background-color: mix($color, #fff, 20%);
+  }
 }
 
 .callout.callout-titled .callout-body > .callout-content > :last-child {
@@ -393,16 +433,51 @@ $presentation-h6-font-size: 1em;
   font-size: .8em;
 }
 
-/* panel tabset */
+/* panel tabset: underlined tabs, tertiary active tab, lightly outlined panel */
+
+/* the line under the tabs is drawn inside the tab bar, so the tab underline sits exactly on it
+   and the panel starts right below, with no negative margins to line up */
+.reveal .panel-tabset [role="tablist"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  margin: 0;
+  border-bottom: 0;
+  box-shadow: inset 0 -1px 0 rgba($primary, 0.35);
+}
+
+/* slide list items have vertical margins, which would lift the tabs off the line */
+.reveal .panel-tabset [role="tablist"] li {
+  margin: 0 !important;
+}
+
+.reveal .panel-tabset [role="tab"] {
+  display: block;
+  margin-bottom: 0;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  border-radius: 0;
+  color: $link-color;
+}
+
+.reveal .panel-tabset [role="tab"]:hover:not([aria-selected="true"]) {
+  border-bottom-color: $secondary;
+}
 
 .reveal .panel-tabset [role="tab"][aria-selected="true"] {
-  border: lightgray 2px solid;
-  border-radius: 6px 6px 0px 0px;
-  border-bottom: none;
+  color: $body-color;
+  background-color: $tertiary;
+  border: 0;
+  border-bottom: 2px solid $primary;
+  border-radius: 0;
 }
 
 .reveal .panel-tabset .tab-content {
-  border-top: lightgray 2px solid;
+  margin: 0;
+  padding: 0.5em 1em 0.1em;
+  background-color: #fff;
+  border: 1px solid rgba($primary, 0.35);
+  border-top: 0;
 }
 
 .reveal .panel-tabset .panel-tabset-tabby {
@@ -419,6 +494,8 @@ $presentation-h6-font-size: 1em;
   --bs-accordion-active-color: #{mix(black, $primary, 60%)};
   --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23#{$primary-hex}'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
   --bs-accordion-border-color: #{rgba($primary, 0.35)};
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
   --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem #{rgba($primary, 0.25)};
 }
 
@@ -430,14 +507,31 @@ $presentation-h6-font-size: 1em;
 /* title slide */
 
 #title-slide .title {
-  font-size: $presentation-h1-font-size;
+  font-size: 2.2em;
+  font-weight: 700;
+  line-height: 1.1;
   margin: 0;
 }
 
 #title-slide .subtitle {
-  font-size: $presentation-h2-font-size;
-  margin: 0;
-  margin-bottom: 1rem !important;
+  font-size: $presentation-h3-font-size;
+  font-weight: 400;
+  line-height: 1.2;
+  margin: 0.35em 0 0;
+}
+
+/* short accent rule between the title block and the author, institute and date lines */
+#title-slide .title-content :is(.title, .subtitle) + :is(.author, .institute, .date) {
+  margin-top: 1.4em;
+}
+
+#title-slide .title-content :is(.title, .subtitle) + :is(.author, .institute, .date)::before {
+  content: "";
+  display: block;
+  width: 3rem;
+  height: 0.2rem;
+  margin-bottom: 0.8em;
+  background-color: $primary;
 }
 
 #title-slide .quarto-title-authors {
@@ -458,7 +552,8 @@ $presentation-h6-font-size: 1em;
 
 #title-slide .date {
   font-size: $presentation-h5-font-size;
-  margin: 0;
+  margin: 0.3em 0 0;
+  color: lighten($body-color, 20%);
 }
 
 .reveal .slide-background-content {
@@ -477,9 +572,12 @@ $presentation-h6-font-size: 1em;
 }
 
 #title-slide .title-content {
+  min-width: 55%;
+  max-width: 85%;
   background-color: #eaf2f3;
-  padding: 2em 4em;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  padding: 2.2em 3.5em 2.2em 3em;
+  border-left: 0.45rem solid $primary;
+  box-shadow: $shadow-high;
   /* background-image: url('assets/images/binary.svg'); */
   background-size: cover;
   background-position: center;

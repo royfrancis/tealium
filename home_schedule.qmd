@@ -28,25 +28,26 @@ toastui:
     timezone:
       zones:
         - timezoneName: Europe/Stockholm
+    # colours follow the site palette in styles.scss: session is $tertiary with $primary, extra is $accent
     calendars:
       - id: "session"
         name: "Session"
         color: inherit
-        backgroundColor: "#D6EAF8"
-        dragBackgroundColor: "#D6EAF8"
-        borderColor: "#85C1E9"
+        backgroundColor: "#D1E5E6"
+        dragBackgroundColor: "#D1E5E6"
+        borderColor: "#4C979F"
       - id: "free"
         name: "Free"
         color: inherit
-        backgroundColor: "#FCF3CF"
-        dragBackgroundColor: "#FCF3CF"
-        borderColor: "#F7DC6F"
+        backgroundColor: "#F1EBDD"
+        dragBackgroundColor: "#F1EBDD"
+        borderColor: "#D9CBA8"
       - id: "extra"
         name: "Extra"
         color: inherit
-        backgroundColor: "#E8DAEF"
-        dragBackgroundColor: "#E8DAEF"
-        borderColor: "#BB8FCE"
+        backgroundColor: "#F5E1DA"
+        dragBackgroundColor: "#F5E1DA"
+        borderColor: "#CF6A45"
 format: html
 ---
 

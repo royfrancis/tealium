@@ -4,10 +4,12 @@
 
 /* colours, fonts, size ---------------------------------------------------------------------- */
 
-$primary: #4C979F;
+$primary: #4C979F; /* brand colour, for fills and decoration */
+$primary-dark: #37757D; /* fills that carry light text: buttons, badges, step numbers (4.8:1 with whitesmoke) */
 $secondary: #A6CBCF;
 $tertiary: #D1E5E6;
-$link-color: #79B1B7;
+$accent: #CF6A45; /* warm accent, used sparingly: venue marker, extra sessions, caution callouts */
+$link-color: #2F6F77; /* 5.4:1 on the page background */
 $body-color: #1c2833;
 $code-color: #496985;
 $code-block-bg: WhiteSmoke;
@@ -28,6 +30,13 @@ $code-block-border-color: none;
 $code-bg: $code-block-bg; /* inline code */
 /*$code-color: ; */
 
+/* callout colours, muted to sit with the teal palette */
+$callout-color-note: $primary;
+$callout-color-tip: #6B9F7F;
+$callout-color-important: #B5495B;
+$callout-color-caution: $accent;
+$callout-color-warning: #D4A02F;
+
 /* shadow strengths */
 $shadow-low: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
 $shadow-medium: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -41,6 +50,11 @@ $footer-bg: transparent;
 $footer-fg: DimGray;
 
 /*-- scss:rules --*/
+
+/* shadow tokens for plain css files */
+:root {
+  --shadow-medium: #{$shadow-medium};
+}
 
 h1,h2,h3,h4,h5,h6 {
   font-family: $headings-font-family;
@@ -66,6 +80,11 @@ body {
 
 .navbar-brand {
   padding-top: 0;
+}
+
+.navbar-title {
+  font-weight: 600;
+  letter-spacing: 0.04em;
 }
 
 .navbar-nav {
@@ -108,32 +127,31 @@ table, .Reactable {
 .btn,
 .btn-primary {
   --bs-btn-color: whitesmoke;
-  --bs-btn-bg: #{$primary};
-  --bs-btn-border-color: #{$primary};
+  --bs-btn-bg: #{$primary-dark};
+  --bs-btn-border-color: #{$primary-dark};
   --bs-btn-hover-color: whitesmoke;
-  --bs-btn-hover-bg: #{darken($primary, 5%)};
-  --bs-btn-hover-border-color: #{darken($primary, 5%)};
+  --bs-btn-hover-bg: #{darken($primary-dark, 5%)};
+  --bs-btn-hover-border-color: #{darken($primary-dark, 5%)};
   --bs-btn-active-color: whitesmoke;
-  --bs-btn-active-bg: #{darken($primary, 10%)};
-  --bs-btn-active-border-color: #{darken($primary, 10%)};
+  --bs-btn-active-bg: #{darken($primary-dark, 10%)};
+  --bs-btn-active-border-color: #{darken($primary-dark, 10%)};
   --bs-btn-disabled-color: whitesmoke;
-  --bs-btn-disabled-bg: #{$primary};
-  --bs-btn-disabled-border-color: #{$primary};
+  --bs-btn-disabled-bg: #{$primary-dark};
+  --bs-btn-disabled-border-color: #{$primary-dark};
   border-radius: 0;
-  box-shadow: $shadow-medium;
 }
 
 .btn-secondary {
-  --bs-btn-color: whitesmoke;
+  --bs-btn-color: #{$body-color};
   --bs-btn-bg: #{$secondary};
   --bs-btn-border-color: #{$secondary};
-  --bs-btn-hover-color: whitesmoke;
+  --bs-btn-hover-color: #{$body-color};
   --bs-btn-hover-bg: #{darken($secondary, 5%)};
   --bs-btn-hover-border-color: #{darken($secondary, 5%)};
-  --bs-btn-active-color: whitesmoke;
+  --bs-btn-active-color: #{$body-color};
   --bs-btn-active-bg: #{darken($secondary, 10%)};
   --bs-btn-active-border-color: #{darken($secondary, 10%)};
-  --bs-btn-disabled-color: whitesmoke;
+  --bs-btn-disabled-color: #{$body-color};
   --bs-btn-disabled-bg: #{$secondary};
   --bs-btn-disabled-border-color: #{$secondary};
 }
@@ -158,26 +176,24 @@ table, .Reactable {
   text-decoration: none;
 }
 
+.btn-secondary a, .btn-secondary a:hover,
 .btn-tertiary a, .btn-tertiary a:hover {
   color: $body-color;
-}
-
-.btn:hover {
-  box-shadow: $shadow-low;
 }
 
 /* badges */
 
 .badge,
 .badge.badge-primary {
-  background-color: $primary;
+  background-color: $primary-dark;
   color: whitesmoke;
+  font-weight: normal;
   border-radius: 0;
 }
 
 .badge.badge-secondary {
   background-color: $secondary;
-  color: whitesmoke;
+  color: $body-color;
 }
 
 .badge.badge-tertiary {
@@ -191,6 +207,8 @@ table, .Reactable {
   text-decoration: none;
 }
 
+.badge.badge-secondary a,
+.badge.badge-secondary a:hover,
 .badge.badge-tertiary a,
 .badge.badge-tertiary a:hover {
   color: $body-color;
@@ -268,6 +286,10 @@ pre:not(.sourceCode), pre:not([class]) {
   padding: 0.4em;
 }
 
+div.code-with-filename .code-with-filename-file {
+  border-radius: 0;
+}
+
 div.code-with-filename-file pre {
   padding: 0;
   background-color: transparent;
@@ -290,23 +312,59 @@ div.sourceCode {
 /* tab content */
 
 .tab-content {
-  background-color: white;
+  background-color: $body-bg;
+}
+
+/* panel tabset: underlined tabs, tertiary active tab, lightly outlined panel */
+
+.panel-tabset > .nav-tabs {
+  --bs-nav-tabs-border-color: #{rgba($primary, 0.35)};
+  --bs-nav-tabs-border-radius: 0;
+  --bs-nav-tabs-link-hover-border-color: transparent transparent #{$secondary};
+  --bs-nav-tabs-link-active-color: #{$body-color};
+  --bs-nav-tabs-link-active-bg: #{$tertiary};
+  --bs-nav-tabs-link-active-border-color: transparent transparent #{$primary};
+}
+
+.panel-tabset > .nav-tabs .nav-link {
+  border-bottom-width: 2px;
+}
+
+.panel-tabset > .tab-content {
+  padding: 1rem 1.25rem 0.25rem;
+  border: 1px solid rgba($primary, 0.35);
+  border-top: 0;
 }
 
 /* call-out */
 
 .callout {
   border-radius: 0 !important;
-  background-color: white;
+  background-color: $body-bg;
 }
 
+/* thin neutral outline and a thicker left accent, the accent colour comes from $callout-color-* */
 .callout-style-default,
 .callout-style-simple {
-  border: solid silver 1px !important;
+  border-top: solid silver 1px !important;
+  border-right: solid silver 1px !important;
+  border-bottom: solid silver 1px !important;
+  border-left-width: 4px !important;
 }
 
-div.callout-note.callout-style-default > .callout-header {
-  background-color: $secondary;
+/* header tinted with the callout colour */
+$callout-types: (
+  "note": $callout-color-note,
+  "tip": $callout-color-tip,
+  "important": $callout-color-important,
+  "caution": $callout-color-caution,
+  "warning": $callout-color-warning
+);
+
+@each $type, $color in $callout-types {
+  div.callout-#{$type}.callout-style-default > .callout-header {
+    background-color: mix($color, $body-bg, 20%);
+  }
 }
 
 div.callout-note .callout-icon::before {
@@ -423,3 +481,66 @@ div.callout-important .callout-icon::before {
   transition: filter 0.5s ease, -webkit-filter 0.5s ease;
 }
 
+/* push-down hover: the shadow flattens, as if the element is pressed into the page */
+
+.btn,
+.quarto-listing .card,
+.profile-effect,
+.toastui-nav .toastui-nav-btn {
+  box-shadow: $shadow-medium;
+  transition: box-shadow 0.15s ease, color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.btn:hover,
+.quarto-listing .card:hover,
+.profile-effect:hover,
+.toastui-nav .toastui-nav-btn:hover {
+  box-shadow: $shadow-low;
+}
+
+/* schedule toolbar buttons, same look as .btn */
+
+.toastui-nav .toastui-nav-btn {
+  padding: 0.375rem 0.75rem;
+  color: $body-color;
+  background-color: $tertiary;
+  border: 1px solid $tertiary;
+  border-radius: 0;
+}
+
+.toastui-nav .toastui-nav-btn:hover {
+  background-color: darken($tertiary, 5%);
+  border-color: darken($tertiary, 5%);
+}
+
+.toastui-nav .toastui-nav-btn.active {
+  color: whitesmoke;
+  background-color: $primary-dark;
+  border-color: $primary-dark;
+}
+
+.toastui-nav .toastui-nav-btn.active:hover {
+  background-color: darken($primary-dark, 5%);
+  border-color: darken($primary-dark, 5%);
+}
+
+/* accordion */
+
+.accordion {
+  --bs-accordion-border-radius: 0;
+  --bs-accordion-inner-border-radius: 0;
+}
+
+/* blockquote */
+
+blockquote {
+  margin: 1.25rem 0;
+  padding: 0.75rem 1.25rem;
+  color: $body-color;
+  background-color: mix($tertiary, $body-bg, 40%);
+  border-left: 4px solid $primary;
+}
+
+blockquote > :last-child {
+  margin-bottom: 0;
+}
