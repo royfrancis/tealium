@@ -17,6 +17,9 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      # site timestamps use the system time zone, so build in Swedish time
+      TZ: Europe/Stockholm
     steps:
       - name: Check out repo
         uses: actions/checkout@v6
