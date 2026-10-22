@@ -1,4 +1,4 @@
-# tealium <span><a href="https://github.com/royfrancis/tealium"><img src="assets/logos/logo.webp" style="height:30px;vertical-align:middle;"></a></span> 
+# tealium <span><a href="https://github.com/royfrancis/tealium"><img src="assets/logos/logo.webp" style="height:40px;vertical-align:middle;"></a></span> 
 
 [![ci_badge](https://github.com/royfrancis/tealium/workflows/deploy/badge.svg)](https://github.com/royfrancis/tealium/actions?workflow=deploy)  [![linkcheck_badge](https://github.com/royfrancis/tealium/workflows/linkcheck/badge.svg)](https://github.com/royfrancis/tealium/actions?workflow=linkcheck)  
 
@@ -29,7 +29,7 @@ quarto use template royfrancis/tealium
 quarto add --no-prompt quarto-ext/fontawesome
 quarto add --no-prompt royfrancis/quarto-revealjs-header
 quarto add --no-prompt royfrancis/quarto-revealjs-pointer
-quarto add --no-prompt mcanouil/quarto-collapse-output@1.4.0
+quarto add --no-prompt mcanouil/quarto-collapse-output
 quarto add --no-prompt royfrancis/quarto-accordion
 quarto add --no-prompt royfrancis/quarto-leaflet
 quarto add --no-prompt royfrancis/quarto-toastui
