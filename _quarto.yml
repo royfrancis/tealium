@@ -21,30 +21,23 @@ website:
   navbar:
     # display this logo in the navigation bar
     logo: "assets/logos/logo-mark.webp"
-    logo-alt: "logo"
+    logo-alt: "Home"
     # place these navigation items on the right side
     right:
       - text: "Home"
-        href: "index.html"
-        aria-label: "Home"
+        href: "index.qmd"
       - text: "Schedule"
-        href: "home_schedule.html"
-        aria-label: "Schedule"
+        href: "home_schedule.qmd"
       - text: "Contents"
-        href: "home_contents.html"
-        aria-label: "Contents"
+        href: "home_contents.qmd"
       - text: "Syllabus"
-        href: "home_syllabus.html"
-        aria-label: "Syllabus"
+        href: "home_syllabus.qmd"
       - text: "Precourse"
-        href: "home_precourse.html"
-        aria-label: "Pre-course"
+        href: "home_precourse.qmd"
       - text: "FAQ"
-        href: "home_faq.html"
-        aria-label: "Frequently Asked Questions"
-      - text: About
-        href: "home_about.html"
-        aria-label: "About"
+        href: "home_faq.qmd"
+      - text: "About"
+        href: "home_about.qmd"
       - icon: github
         aria-label: "GitHub"
         href: https://github.com/royfrancis/tealium
@@ -158,11 +151,11 @@ format:
     # set attributes for the title slide
     title-slide-attributes:
       # use this image as the title slide background
-      data-background-image: "assets/images/cover.webp"
+      data-background-image: "../../assets/images/cover.webp"
       data-background-size: "cover"
       # render the background image fully opaque
       data-background-opacity: "1"
-    title-content-background: "../../../assets/images/binary.svg"
+    title-content-background: "../../assets/images/binary.svg"
     resources:
       - "assets/images/binary.svg"
     subtitle: "Tealium quarto theme"
