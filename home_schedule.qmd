@@ -23,9 +23,8 @@ toastui:
       workweek: true
       taskView: false
       eventView: ['time']
-      hourStart: 9
-      hourEnd: 21
       showNowIndicator: true
+    autoHourRange: true
     timezone:
       zones:
         - timezoneName: Europe/Stockholm

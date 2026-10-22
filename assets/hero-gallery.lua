@@ -43,10 +43,11 @@ function Meta(meta)
     end
 
     -- Build the gallery HTML
-    -- The image is added by the script below so only the visible one is fetched first
+    -- The script below sets src from data-src so only the visible image is fetched first
+    -- Keep the path on an <img> tag, since Quarto finds the files to copy to the output by scanning img src/data-src
     local galleryItems = {}
     for _, filename in ipairs(imageFiles) do
-      local item = '<div class="child image-effect" data-src="' .. imagePath .. filename .. '"></div>'
+      local item = '<div class="child image-effect"><img alt="" data-src="' .. imagePath .. filename .. '"></div>'
       table.insert(galleryItems, item)
     end
 
@@ -75,17 +76,15 @@ function Meta(meta)
   // Randomly shuffle the images
   const shuffledImages = shuffle(images);
 
-  // Add the image to a slide on first use, resolve once it has loaded (or failed)
+  // Start loading a slide's image on first use, resolve once it has loaded (or failed)
   const loaders = new Map();
   function load(child) {
     if (!loaders.has(child)) {
       loaders.set(child, new Promise(resolve => {
-        const img = document.createElement('img');
-        img.alt = '';
+        const img = child.querySelector('img');
         img.addEventListener('load', resolve);
         img.addEventListener('error', resolve);
-        img.src = child.dataset.src;
-        child.appendChild(img);
+        img.src = img.dataset.src;
       }));
     }
     return loaders.get(child);
