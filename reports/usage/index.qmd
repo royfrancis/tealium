@@ -31,7 +31,7 @@ quarto add --no-prompt royfrancis/quarto-revealjs-header
 # adds a presenter pointer to slides
 quarto add --no-prompt royfrancis/quarto-revealjs-pointer
 # adds collapsible code output
-quarto add --no-prompt mcanouil/quarto-collapse-output@1.4.0
+quarto add --no-prompt mcanouil/quarto-collapse-output
 # adds Bootstrap accordion components
 quarto add --no-prompt royfrancis/quarto-accordion
 # adds Leaflet maps

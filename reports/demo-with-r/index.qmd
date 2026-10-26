@@ -404,7 +404,6 @@ See Quarto's [figure documentation](https://quarto.org/docs/authoring/figures.ht
 -   Plots using base R are widely used and may be good enough for most situations.
 -   But they lack a consistent coding framework.
 
-
 ```{r}
 #| fig-height: 6
 #| fig-width: 6
