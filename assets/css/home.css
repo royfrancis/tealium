@@ -10,24 +10,50 @@
   z-index: 1;
 }
 
+/* hero and home box geometry
+   The hero is pinned to the top of the page, behind the announcement and the navbar, with a fixed height. Quarto's header padding is removed on this page, so the page flow also starts
+   at the top and the box is simply pushed down to overlap the bottom of the hero. The overlap scales with the window width but is clamped to 10-30% of the hero height, so the box always sits on the hero whatever the window size and the header height. Everything after the box flows below it as usual. */
+
+:root {
+  --hero-height: clamp(280px, 50vh, 650px); /* from the top of the page to the bottom of the hero, half the window so the page fits one screen */
+  --hero-overlap: clamp(calc(var(--hero-height) * 0.1), 8vw + 2rem, calc(var(--hero-height) * 0.1));
+}
+
+/* the fixed header overlays the hero, so drop the padding quarto-nav.js sets inline for it Quarto's min-height for the content assumes that padding, so instead the page is at least the window height and the content takes up the space left, which keeps the footer at the bottom */
+body {
+  padding-top: 0 !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+#quarto-content {
+  flex: 1 0 auto;
+}
+
+/* no extra space above the hero (Quarto adds a margin, and a padding on wide screens only), and none below the box either, so the page fits one screen */
+#quarto-content > main.content {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-top: 0;
+}
+
+/* the empty title block would add a line of space */
+#title-block-header {
+  display: none;
+}
+
 /* home page content box */
 
 .home-container {
   max-width: 1200px;
+  margin-inline: auto;
+  margin-top: calc(var(--hero-height) - var(--hero-overlap));
+  margin-bottom: 0.5rem;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-  height: 100%;
   pointer-events: none;
-}
-
-.home-container .spacer:first-child {
-	flex: 1 1 70% ;
-}
-
-.home-container .spacer:last-child {
-	flex: 1 1 10% ;
 }
 
 .home-inner {
@@ -41,9 +67,10 @@
   pointer-events: auto;
 }
 
+/* narrower sides on small screens, the top and bottom stay as above */
 @media only screen and (max-width: 576px) {
   .home-inner {
-    padding: 0.5em 1em;
+    padding-inline: 1em;
   }
 }
 
@@ -85,12 +112,13 @@
 
 /* hero slideshow */
 
+/* out of the page flow, from the top of the page to --hero-height */
 .hero-container {
   position: absolute;
   top: 0;
   left: 0;
-  height: clamp(280px, 50vh, 560px);
-  width: 100%;
+  right: 0;
+  height: var(--hero-height);
   z-index: -5;
 }
 
@@ -121,6 +149,7 @@
   display: block;
 }
 
+/* pale veil behind the header */
 .hero-overlay {
   position: absolute;
   top: 0;

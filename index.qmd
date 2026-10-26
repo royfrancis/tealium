@@ -1,5 +1,6 @@
 ---
 pagetitle: "Tealium: Course Template"
+title: "Tealium: Course Template"
 subtitle: ""
 toc: false
 date: ""
@@ -24,9 +25,6 @@ filters:
 ---
 
 ::: {.home-container}
-::: {.spacer}
-
-:::
 ::: {.home-inner}
 
 # ![](assets/logos/logo.svg){.home-logo .nolightbox alt=""} Tealium: Course Template
@@ -52,9 +50,6 @@ Usage, instructions and demo examples are on the Contents page.
 ::: small
 Updated: {{< meta current_date >}} at {{< meta current_time >}}.
 :::
-
-:::
-::: {.spacer}
 
 :::
 :::
